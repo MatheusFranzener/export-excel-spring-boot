@@ -1,0 +1,25 @@
+package br.sc.senai.export_excel.service;
+
+import br.sc.senai.export_excel.entities.Student;
+import br.sc.senai.export_excel.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class StudentServiceImpl implements StudentService {
+
+    @Autowired
+    StudentRepository studentRepo;
+
+    @Override
+    public void addStudent(Student student) {
+        studentRepo.save(student);
+    }
+    @Override
+    public List< Student > getTheListStudent() {
+        return studentRepo.findAll();
+    }
+
+}
